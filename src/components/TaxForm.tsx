@@ -95,8 +95,12 @@ export default function TaxForm() {
             {...register('year')}
             className='p-2 w-full rounded-lg bg-gray-200'
           >
-            {['2019', '2020', '2021', '2022'].map((y) => (
-              <option key={y}>{y}</option>
+            {/* Ideally, we would receive the available tax brackets years from the API, and use that information
+            to dynamically map the options to present in the select element. This hardcoded array was set only because of the  parameters
+            of the assignment. In either case, using a select element acts as a basic safeguard to prevent API requests that would
+            surely return error due to unavailable tax brackets for certain years. */}
+            {['2019', '2020', '2021', '2022'].map((year) => (
+              <option key={year}>{year}</option>
             ))}
           </select>
           {errors.year && (
